@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12">
+  <title>How Otto works</title>
+  <desc>Otto reads Slack, browser tabs and the calendar on your Mac through read-only interfaces; one background engine remembers, classifies and writes a briefing; the menu bar, a browser page, banners and a small CLI show it. The only traffic Otto starts on its own is GET requests to slack.com (if you connect Slack) and, optionally, the digest to a model provider you choose.</desc>
+  <defs>
+    <marker id="a-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/>
+    </marker>
+    <marker id="a-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3B7DED"/>
+    </marker>
+    <marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#D9930D"/>
+    </marker>
+    <marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#23A55A"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="800" fill="#FFFFFF"/>
+
+  <!-- title -->
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#111827">How Otto works</text>
+  <text x="24" y="62" font-size="13" fill="#4B5563">One read-only engine on your Mac · thin clients that only display it · nothing is ever posted, clicked or marked read</text>
+
+  <!-- your Mac -->
+  <rect x="24" y="86" width="1152" height="524" rx="14" fill="#FBFBFD" stroke="#9AA3B2" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="44" y="108" font-size="11" font-weight="700" fill="#6B7280" letter-spacing="1.2">YOUR MAC — EVERYTHING HERE STAYS HERE</text>
+
+  <!-- ===== sources ===== -->
+  <text x="44" y="132" font-size="11" font-weight="700" fill="#1D4ED8" letter-spacing="1.2">WHAT OTTO READS</text>
+  <g fill="#EAF1FF" stroke="#3B7DED" stroke-width="1.3">
+    <rect x="44" y="144" width="256" height="70" rx="9"/>
+    <rect x="44" y="226" width="256" height="70" rx="9"/>
+    <rect x="44" y="308" width="256" height="70" rx="9"/>
+    <rect x="44" y="390" width="256" height="70" rx="9"/>
+    <rect x="44" y="472" width="256" height="70" rx="9"/>
+  </g>
+  <g font-size="13" font-weight="600" fill="#1E3A8A">
+    <text x="58" y="166">Slack.app window</text>
+    <text x="58" y="248">Slack API <tspan font-weight="400" fill="#4B5563">(optional)</tspan></text>
+    <text x="58" y="330">Chrome / Safari tabs</text>
+    <text x="58" y="412">Calendar</text>
+    <text x="58" y="494">Screen <tspan font-weight="400" fill="#4B5563">(optional)</tspan></text>
+  </g>
+  <g font-size="11" fill="#374151">
+    <text x="58" y="185">Accessibility · the conversation on screen, open</text>
+    <text x="58" y="200">threads, the sidebar's unread and mentions</text>
+    <text x="58" y="267">GET only, read-scope token · channels you are in,</text>
+    <text x="58" y="282">DMs and threads the window does not show</text>
+    <text x="58" y="349">Automation · Gmail and Jira as they are</text>
+    <text x="58" y="364">in the open tabs — titles and contents</text>
+    <text x="58" y="431">EventKit · today's events, without</text>
+    <text x="58" y="446">opening the Calendar app</text>
+    <text x="58" y="513">Screen Recording · a picture of the Slack</text>
+    <text x="58" y="528">conversation on each row and banner</text>
+  </g>
+  <!-- sources to engine -->
+  <g stroke="#3B7DED" stroke-width="1.4" marker-end="url(#a-blue)">
+    <line x1="300" y1="179" x2="338" y2="179"/>
+    <line x1="300" y1="261" x2="338" y2="261"/>
+    <line x1="300" y1="343" x2="338" y2="343"/>
+    <line x1="300" y1="425" x2="338" y2="425"/>
+    <line x1="300" y1="507" x2="338" y2="507"/>
+  </g>
+
+  <!-- ===== engine ===== -->
+  <rect x="340" y="120" width="492" height="470" rx="12" fill="#F3F4F7" stroke="#9AA3B2" stroke-width="1.3"/>
+  <text x="360" y="142" font-size="11" font-weight="700" fill="#374151" letter-spacing="1.2">THE ENGINE</text>
+  <text x="440" y="142" font-size="11" fill="#6B7280">one process, kept alive by launchd · 127.0.0.1:7077 · refresh every 60 s</text>
+
+  <g fill="#FFFFFF" stroke="#6B7280" stroke-width="1.2">
+    <rect x="360" y="156" width="296" height="60" rx="8"/>
+    <rect x="360" y="230" width="296" height="60" rx="8"/>
+    <rect x="360" y="304" width="296" height="60" rx="8"/>
+    <rect x="360" y="378" width="296" height="60" rx="8" fill="#FFF7E6" stroke="#D9930D"/>
+    <rect x="360" y="452" width="296" height="60" rx="8"/>
+  </g>
+  <g font-size="12.5" font-weight="600" fill="#111827">
+    <text x="374" y="176">1 · Read</text>
+    <text x="374" y="250">2 · Remember → Radar</text>
+    <text x="374" y="324">3 · Classify</text>
+    <text x="374" y="398" fill="#92400E">4 · Digest <tspan font-weight="400" fill="#B45309">— optional model</tspan></text>
+    <text x="374" y="472">5 · Briefing</text>
+  </g>
+  <g font-size="10.5" fill="#374151">
+    <text x="374" y="193">every source polled concurrently and time-boxed;</text>
+    <text x="374" y="207">a hung app costs one poll, never the briefing</text>
+    <text x="374" y="267">knowledge.db keeps messages, people and promises;</text>
+    <text x="374" y="281">to do · waiting on · coming up · keeps coming back</text>
+    <text x="374" y="341">who said it, asks aimed at you, deadlines, your habits;</text>
+    <text x="374" y="355">evidence, not adjectives · cached by content hash</text>
+    <text x="374" y="415">one call per changed briefing, cached 6 h; what comes</text>
+    <text x="374" y="429">back is scanned for anything that looks like an action</text>
+    <text x="374" y="489">Needs you · For you · Worth a look · Also noticed</text>
+    <text x="374" y="503">+ Worth knowing: heads-ups, radar, about Otto itself</text>
+  </g>
+  <!-- step to step -->
+  <g stroke="#6B7280" stroke-width="1.3" marker-end="url(#a-slate)">
+    <line x1="508" y1="216" x2="508" y2="229"/>
+    <line x1="508" y1="290" x2="508" y2="303"/>
+    <line x1="508" y1="364" x2="508" y2="377"/>
+    <line x1="508" y1="438" x2="508" y2="451"/>
+  </g>
+  <!-- notifier -->
+  <text x="374" y="536" font-size="10.5" fill="#4B5563"><tspan font-weight="600" fill="#374151">Notifier</tspan> · at most one banner per refresh · quiet hours · rate limit ·</text>
+  <text x="374" y="550" font-size="10.5" fill="#4B5563">a reminder when something <tspan font-style="italic">you</tspan> promised is due within the hour</text>
+  <text x="374" y="574" font-size="10.5" fill="#4B5563">One reader, one cache, one scheduler — every surface is a view of the same briefing.</text>
+
+  <!-- memory -->
+  <g stroke="#7C5CE6" stroke-width="1.3" fill="#F3EEFF">
+    <path d="M700,240 a54,10 0 0 1 108,0 v96 a54,10 0 0 1 -108,0 z"/>
+    <path d="M700,240 a54,10 0 0 0 108,0" fill="none"/>
+  </g>
+  <g font-size="10.5" fill="#4C1D95" text-anchor="middle">
+    <text x="754" y="270" font-weight="700" font-size="11.5">knowledge.db</text>
+    <text x="754" y="286">SQLite, on this Mac</text>
+    <text x="754" y="302">messages · people</text>
+    <text x="754" y="317">commitments · series</text>
+    <text x="754" y="332">habits · feedback</text>
+  </g>
+  <g stroke="#7C5CE6" stroke-width="1.2" stroke-dasharray="3 3">
+    <line x1="656" y1="260" x2="700" y2="270"/>
+    <line x1="656" y1="334" x2="700" y2="316"/>
+  </g>
+  <g font-size="10.5" fill="#6B7280" text-anchor="middle">
+    <text x="754" y="378">Learns from what you</text>
+    <text x="754" y="392">open and dismiss —</text>
+    <text x="754" y="406">gets quieter over time.</text>
+  </g>
+
+  <!-- engine to clients -->
+  <g stroke="#23A55A" stroke-width="1.4" marker-end="url(#a-green)">
+    <line x1="832" y1="179" x2="892" y2="179"/>
+    <line x1="832" y1="261" x2="892" y2="261"/>
+    <line x1="832" y1="343" x2="892" y2="343"/>
+    <line x1="832" y1="425" x2="892" y2="425"/>
+  </g>
+  <!-- clients back to engine (feedback) -->
+  <line x1="892" y1="507" x2="832" y2="507" stroke="#6B7280" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#a-slate)"/>
+  <text x="862" y="497" font-size="9.5" fill="#6B7280" text-anchor="middle">local HTTP</text>
+
+  <!-- ===== clients ===== -->
+  <text x="896" y="132" font-size="11" font-weight="700" fill="#15803D" letter-spacing="1.2">WHERE YOU SEE IT</text>
+  <g fill="#E9F8EF" stroke="#23A55A" stroke-width="1.3">
+    <rect x="896" y="144" width="256" height="70" rx="9"/>
+    <rect x="896" y="226" width="256" height="70" rx="9"/>
+    <rect x="896" y="308" width="256" height="70" rx="9"/>
+    <rect x="896" y="390" width="256" height="70" rx="9"/>
+    <rect x="896" y="472" width="256" height="70" rx="9" fill="#F5F5F7" stroke="#8E8E93"/>
+  </g>
+  <g font-size="13" font-weight="600" fill="#14532D">
+    <text x="910" y="166">Menu bar <tspan font-weight="400" fill="#4B5563">— Otto.app</tspan></text>
+    <text x="910" y="248">Browser <tspan font-weight="400" fill="#4B5563">— localhost:7077</tspan></text>
+    <text x="910" y="330">Banners</text>
+    <text x="910" y="412">Terminal <tspan font-weight="400" fill="#4B5563">— ./otto</tspan></text>
+    <text x="910" y="494" fill="#374151">Dismiss · snooze · clear</text>
+  </g>
+  <g font-size="11" fill="#374151">
+    <text x="910" y="185">a ring with a count · a panel of items with</text>
+    <text x="910" y="200">reasons and pictures · Worth knowing · N</text>
+    <text x="910" y="267">the same briefing with room to breathe: cards,</text>
+    <text x="910" y="282">the full why, checklists · re-renders every 15 s</text>
+    <text x="910" y="349">at most one per refresh, only for what asks</text>
+    <text x="910" y="364">something of you · silent in quiet hours</text>
+    <text x="910" y="431">status · config · logs · key · slack · permissions</text>
+    <text x="910" y="446">small on purpose — the menu bar does the rest</text>
+    <text x="910" y="513">from any surface, straight to the engine;</text>
+    <text x="910" y="528">what you open and dismiss teaches Otto</text>
+  </g>
+
+  <!-- ===== outside ===== -->
+  <text x="44" y="664" font-size="11" font-weight="700" fill="#6B7280" letter-spacing="1.2">OUTSIDE YOUR MAC</text>
+  <text x="44" y="680" font-size="11" fill="#6B7280">the only traffic Otto starts on its own,</text>
+  <text x="44" y="694" font-size="11" fill="#6B7280">both optional and both off by default</text>
+  <rect x="340" y="648" width="236" height="64" rx="9" fill="#EAF1FF" stroke="#3B7DED" stroke-width="1.3"/>
+  <text x="354" y="668" font-size="12.5" font-weight="600" fill="#1E3A8A">slack.com <tspan font-weight="400" font-size="11" fill="#4B5563">— only if you connect Slack</tspan></text>
+  <text x="354" y="686" font-size="10.5" fill="#374151">GET only · a read-scope token you create</text>
+  <text x="354" y="700" font-size="10.5" fill="#374151">from Otto's manifest · nothing is ever written</text>
+  <rect x="596" y="648" width="236" height="64" rx="9" fill="#FFF7E6" stroke="#D9930D" stroke-width="1.3"/>
+  <text x="610" y="668" font-size="12.5" font-weight="600" fill="#92400E">A model you choose <tspan font-weight="400" font-size="11" fill="#B45309">— optional</tspan></text>
+  <text x="610" y="686" font-size="10.5" fill="#374151">OpenRouter · OpenAI · Anthropic · Gemini</text>
+  <text x="610" y="700" font-size="10.5" fill="#374151">(a local Ollama, if you use one, stays on the Mac)</text>
+  <!-- engine and outside -->
+  <line x1="458" y1="648" x2="458" y2="592" stroke="#3B7DED" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a-blue)"/>
+  <text x="466" y="626" font-size="9.5" fill="#3B7DED">GET</text>
+  <line x1="714" y1="592" x2="714" y2="646" stroke="#D9930D" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#a-amber)"/>
+  <text x="722" y="626" font-size="9.5" fill="#B45309">digest input — never a token, never your keys</text>
+
+  <!-- ===== guarantee ===== -->
+  <rect x="24" y="726" width="1152" height="52" rx="10" fill="#1F2937"/>
+  <text x="44" y="748" font-size="12.5" fill="#F9FAFB"><tspan font-weight="700">Read-only by construction.</tspan> Otto never posts, replies, reacts, clicks, scrolls or marks anything read. Its network clients refuse anything but GET;</text>
+  <text x="44" y="766" font-size="12.5" fill="#F9FAFB">the Slack token carries read scopes only; what a model writes is scanned for anything that looks like an action. The worst outcome is a wrong or missing briefing.</text>
+</svg>
