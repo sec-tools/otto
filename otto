@@ -1,0 +1,22 @@
+#!/bin/bash
+# Otto CLI launcher — works from a fresh checkout, no install step required.
+#
+#   ./otto setup      one-time setup (venv, keys, Slack, menu bar, run at login)
+#   ./otto status     what's running, what it reads, what needs a look
+#   ./otto config     open config.toml (settings that used to be flags)
+#   ./otto --help     everything else — after setup, the menu bar does the rest
+#
+# Prefers the project virtualenv (.venv) when present, otherwise the
+# system python3. Set OTTO_PYTHON to force an interpreter.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -n "${OTTO_PYTHON:-}" ]; then
+  PY="$OTTO_PYTHON"
+elif [ -x "$HERE/.venv/bin/python3" ]; then
+  PY="$HERE/.venv/bin/python3"
+else
+  PY="$(command -v python3 || echo /usr/bin/python3)"
+fi
+export OTTO_HOME="${OTTO_HOME:-$HERE}"
+export PYTHONPATH="$HERE/src${PYTHONPATH:+:$PYTHONPATH}"
+exec "$PY" -m otto "$@"
